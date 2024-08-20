@@ -2,6 +2,9 @@
 /* 引入需要的字体 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/*
+    sans-serif 无衬线体
+*/
 * {
 	margin: 0;
 	padding: 0;
