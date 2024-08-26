@@ -1,0 +1,51 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.text{
+  width: 750px;
+  color: #FFF;
+  font-size: 100px;
+  font-family: sans-serif;
+  position: relative;
+  margin: 0 auto;
+}
+.text::before{
+  content: attr(data-text);
+  background-color: #000;
+  position:absolute;
+  left: 3px;
+  text-shadow: 3px 0 red;
+  animation: ani2 2s  infinite alternate-reverse;
+}
+.text::after{
+  content: attr(data-text);
+  background-color: #000;
+  position:absolute;
+  left: -3px;
+  text-shadow: -3px 0 blue;
+  animation: ani1 2s  infinite alternate-reverse;
+}
+// 定义一个动画 25次 每一次占比1/25 每次裁剪一个矩形 一个控制高度 一个控制宽度
+@keyframes ani1{
+  $steps : 25;
+  @for $i from 0 through $steps{
+    #{percentage($i * (1/$steps))}{
+      clip-path:inset(random(100) + px 0 random(100) + px 0 )
+    }
+  }
+}
+@keyframes ani2{
+  $steps : 25;
+  @for $i from 0 through $steps{
+    #{percentage($i * (1/$steps))}{
+      clip-path:inset(0 random(100) + px 0 random(100) + px )
+    }
+  }
+}
